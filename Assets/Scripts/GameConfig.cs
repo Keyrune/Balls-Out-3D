@@ -17,6 +17,7 @@ public class GameConfig : ScriptableObject
     public Ball ballBig;
     public Ball ballMid;
 
+
     public int wavesCount = 3;
 
     [AssetPath.Attribute(typeof(Sprite))]
