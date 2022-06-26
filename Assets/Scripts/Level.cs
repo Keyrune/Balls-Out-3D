@@ -67,6 +67,7 @@ public class Level : MonoBehaviour, IWaveObserver, ILevelObserver, ICaptureBallO
     public Text ballsCountText;
 
     public GameObject gameMenu;
+    public GameObject levelSelectMenu;
 
     ParticleSystem contactFX;
     ParticleSystem[] contactFXchildren;
@@ -78,6 +79,8 @@ public class Level : MonoBehaviour, IWaveObserver, ILevelObserver, ICaptureBallO
     public Camera cam;
 
     static readonly string[] phrases = {"Hard Ball to Swallow", "A Piece of Cake", "Balls Goes Up Balls Come Down",  "Balls Doesn't Grow On Trees", "Two Down, One to Go", "Down For The Count"};
+
+    
 
     private void Awake()
     {
@@ -488,7 +491,10 @@ public class Level : MonoBehaviour, IWaveObserver, ILevelObserver, ICaptureBallO
     // Update is called once per frame
     void Update()
     {
-        
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            levelSelectMenu.SetActive(!levelSelectMenu.activeSelf);
+        }
 
         if (rotsum > 20f && Input.GetMouseButton(0) && !EventSystem.current.IsPointerOverGameObject())
         {
